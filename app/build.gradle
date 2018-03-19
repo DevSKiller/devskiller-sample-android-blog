@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 26
 
     defaultConfig {
         applicationId "com.devskiller.android.blog"
         minSdkVersion 21
-        targetSdkVersion 21
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -17,20 +16,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
     useLibrary 'org.apache.http.legacy'
 
     lintOptions {
-        warning 'InvalidPackage'
+        abortOnError false
     }
+
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.robolectric:robolectric:3.0'
-
-    testCompile('com.squareup.assertj:assertj-android:1.1.1') {
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.robolectric:robolectric:3.6.1'
+    testImplementation ('com.squareup.assertj:assertj-android:1.2.0'){
         exclude module: 'support-annotations'
     }
     testCompile group: 'org.assertj', name: 'assertj-core', version: '1.7.1'
@@ -40,8 +43,8 @@ dependencies {
     compile 'org.jsoup:jsoup:1.8.3'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.1'
-    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.5.4'
-    androidTestCompile('com.squareup.assertj:assertj-android:1.1.1') {
+    androidTestImplementation 'com.jayway.android.robotium:robotium-solo:5.6.3'
+    androidTestImplementation ('com.squareup.assertj:assertj-android:1.2.0'){
         exclude module: 'support-annotations'
     }
 }
