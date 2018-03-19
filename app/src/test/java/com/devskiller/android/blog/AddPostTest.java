@@ -58,7 +58,7 @@ public class AddPostTest {
 
 
     private void setEditText(String value, int id) {
-        EditText title = (EditText) activity.findViewById(id);
+        EditText title = activity.findViewById(id);
         title.setText(value);
     }
 

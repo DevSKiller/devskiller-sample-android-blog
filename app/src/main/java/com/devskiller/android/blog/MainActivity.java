@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.devskiller.android.blog.R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(com.devskiller.android.blog.R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         service = BlogService.getInstance();
@@ -80,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
 
         observable = service.getEntries().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
 
-        FloatingActionButton addPostButton = (FloatingActionButton) findViewById(com.devskiller.android.blog.R.id.addPost);
+        FloatingActionButton addPostButton = findViewById(R.id.addPost);
 
         // 1. Click on addPostButton should open CreatePostActivity
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(com.devskiller.android.blog.R.id.swipe_refresh_layout);
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         });
         adapter = new BlogAdapter();
 
-        ListView listView = (ListView) findViewById(com.devskiller.android.blog.R.id.listView);
+        ListView listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

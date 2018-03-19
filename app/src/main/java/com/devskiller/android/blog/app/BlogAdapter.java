@@ -62,8 +62,8 @@ public class BlogAdapter extends BaseAdapter {
         TextView content;
 
         public ViewHolder(View view) {
-            title = (TextView) view.findViewById(R.id.title);
-            content = (TextView) view.findViewById(R.id.content);
+            title = view.findViewById(R.id.title);
+            content = view.findViewById(R.id.content);
         }
     }
 

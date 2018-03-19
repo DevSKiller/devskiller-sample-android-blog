@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +15,9 @@ public class CreatePostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(com.devskiller.android.blog.R.layout.activity_create_post);
 
-        final Button submit = (Button) findViewById(com.devskiller.android.blog.R.id.button_submit);
-        final EditText title = (EditText) findViewById(com.devskiller.android.blog.R.id.newTitle);
-        final EditText content = (EditText) findViewById(com.devskiller.android.blog.R.id.newContent);
+        final Button submit = findViewById(R.id.button_submit);
+        final EditText title = findViewById(R.id.newTitle);
+        final EditText content = findViewById(R.id.newContent);
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 

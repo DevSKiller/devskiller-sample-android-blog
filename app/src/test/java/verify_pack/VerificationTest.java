@@ -42,7 +42,7 @@ public class VerificationTest {
                 .visible()
                 .get();
 
-        listView = (ListView) activity.findViewById(R.id.listView);
+        listView = activity.findViewById(R.id.listView);
         ShadowLog.stream = System.out;
 
     }
